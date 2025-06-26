@@ -1,10 +1,6 @@
 @import "tailwindcss";
 @custom-variant hover (&:hover);
 
-@theme {
-    --color-custom-red: #ea2e0e;
-}
-
 #root {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
