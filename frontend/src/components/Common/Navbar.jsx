@@ -23,25 +23,16 @@ const Navbar = () => {
                     <div className="flex justify-between items-center h-16">
                         {/* Left - Logo */}
                         <div>
-                            <Link
-                                to="/"
-                                className="text-2xl font-bold text-black"
-                            >
+                            <Link to="/" className="text-2xl font-bold text-black">
                                 MINIMAL
                             </Link>
                         </div>
                         {/* Center - Navigation Links */}
                         <div className="hidden md:flex space-x-8">
-                            <Link
-                                to="/"
-                                className="text-gray-700 hover:text-black transition-colors"
-                            >
+                            <Link to="/" className="text-gray-700 hover:text-black transition-colors">
                                 Home
                             </Link>
-                            <Link
-                                to="/collection/all"
-                                className="text-gray-700 hover:text-black transition-colors"
-                            >
+                            <Link to="/collection/all" className="text-gray-700 hover:text-black transition-colors">
                                 Shop
                             </Link>
                         </div>
@@ -56,17 +47,11 @@ const Navbar = () => {
                             </button>
 
                             {/* User Profile */}
-                            <Link
-                                to="/profile"
-                                className="text-gray-700 hover:text-black transition-colors"
-                            >
+                            <Link to="/login" className="text-gray-700 hover:text-black transition-colors">
                                 <User className="h-5 w-5" />
                             </Link>
                             {/* Cart */}
-                            <Link
-                                to="/cart"
-                                className="text-gray-700 hover:text-black transition-colors"
-                            >
+                            <Link to="/cart" className="text-gray-700 hover:text-black transition-colors">
                                 <ShoppingBag className="h-5 w-5" />
                             </Link>
                         </div>
@@ -75,11 +60,7 @@ const Navbar = () => {
                             onClick={toggleNavDrawer}
                             className="md:hidden text-gray-700 hover:text-black transition-colors"
                         >
-                            {navDrawerOpen ? (
-                                <X className="h-6 w-6" />
-                            ) : (
-                                <LucideMenu className="h-6 w-6" />
-                            )}
+                            {navDrawerOpen ? <X className="h-6 w-6" /> : <LucideMenu className="h-6 w-6" />}
                         </button>
                     </div>
                 </div>
@@ -126,10 +107,7 @@ const Navbar = () => {
                     </div>
                 )}
             </nav>
-            <SearchModal
-                open={isSearchOpen}
-                onClose={() => setIsSearchOpen()}
-            />
+            <SearchModal open={isSearchOpen} onClose={() => setIsSearchOpen()} />
         </header>
     );
 };
