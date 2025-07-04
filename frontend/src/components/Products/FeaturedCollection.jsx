@@ -137,13 +137,13 @@ const FeaturedCollection = ({ collection }) => {
                         </div>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Link
-                                to="/collection/all"
+                                to="/collections/all"
                                 className="flex-1 bg-black text-white px-8 py-4 text-center font-medium hover:bg-gray-800 transition-colors duration-200"
                             >
                                 Shop Collection
                             </Link>
                             <Link
-                                to="/collection/all?category=t-shirts"
+                                to="/collections/all?category=t-shirts"
                                 className="flex-1 border border-black text-black px-8 py-4 text-center font-medium hover:bg-black hover:text-white transition-colors duration-200"
                             >
                                 View T-Shirts

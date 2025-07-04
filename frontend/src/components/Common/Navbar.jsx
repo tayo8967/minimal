@@ -42,7 +42,7 @@ const Navbar = () => {
                             <Link to="/" className="text-gray-700 hover:text-black transition-colors">
                                 Home
                             </Link>
-                            <Link to="/collection/all" className="text-gray-700 hover:text-black transition-colors">
+                            <Link to="/collections/all" className="text-gray-700 hover:text-black transition-colors">
                                 Shop
                             </Link>
                         </div>
@@ -120,7 +120,7 @@ const Navbar = () => {
                                 Home
                             </Link>
                             <Link
-                                to="/collection/all"
+                                to="/collections/all"
                                 onClick={toggleNavDrawer}
                                 className="block text-gray-700 hover:text-black transition-colors"
                             >

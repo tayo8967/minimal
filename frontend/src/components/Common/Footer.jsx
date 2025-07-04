@@ -1,12 +1,5 @@
 import { Link } from "react-router-dom";
-import {
-    Facebook,
-    Instagram,
-    Twitter,
-    Mail,
-    Phone,
-    MapPin,
-} from "lucide-react";
+import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
     return (
@@ -14,35 +7,22 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
                     <div className="lg:col-span-1">
-                        <Link
-                            to="/"
-                            className="text-2xl font-bold text-black mb-4 block"
-                        >
+                        <Link to="/" className="text-2xl font-bold text-black mb-4 block">
                             MINIMAL
                         </Link>
                         <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                            Crafting timeless essentials with clean lines and
-                            premium materials. Our minimalist approach focuses
-                            on quality over quantity, creating pieces that
-                            transcend trends and stand the test of time.
+                            Crafting timeless essentials with clean lines and premium materials. Our minimalist approach
+                            focuses on quality over quantity, creating pieces that transcend trends and stand the test
+                            of time.
                         </p>
                         <div className="flex space-x-4">
-                            <Link
-                                to="#"
-                                className="text-gray-400 hover:text-black transition-colors duration-200"
-                            >
+                            <Link to="#" className="text-gray-400 hover:text-black transition-colors duration-200">
                                 <Facebook className="h-5 w-5" />
                             </Link>
-                            <Link
-                                to="#"
-                                className="text-gray-400 hover:text-black transition-colors duration-200"
-                            >
+                            <Link to="#" className="text-gray-400 hover:text-black transition-colors duration-200">
                                 <Instagram className="h-5 w-5" />
                             </Link>
-                            <Link
-                                to="#"
-                                className="text-gray-400 hover:text-black transition-colors duration-200"
-                            >
+                            <Link to="#" className="text-gray-400 hover:text-black transition-colors duration-200">
                                 <Twitter className="h-5 w-5" />
                             </Link>
                         </div>
@@ -50,9 +30,7 @@ const Footer = () => {
 
                     {/* Shop Links */}
                     <div>
-                        <h3 className="font-semibold text-gray-900 mb-4">
-                            Quick Links
-                        </h3>
+                        <h3 className="font-semibold text-gray-900 mb-4">Quick Links</h3>
                         <ul className="space-y-3">
                             <li>
                                 <Link
@@ -64,7 +42,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link
-                                    to="/collection/all"
+                                    to="/collections/all"
                                     className="text-gray-600 hover:text-black transition-colors duration-200 text-sm"
                                 >
                                     Shop
@@ -99,9 +77,7 @@ const Footer = () => {
 
                     {/* Support Links */}
                     <div>
-                        <h3 className="font-semibold text-gray-900 mb-4">
-                            Customer Service
-                        </h3>
+                        <h3 className="font-semibold text-gray-900 mb-4">Customer Service</h3>
                         <ul className="space-y-3">
                             <li>
                                 <Link
@@ -148,9 +124,7 @@ const Footer = () => {
 
                     {/* Follow us */}
                     <div>
-                        <h3 className="font-semibold text-gray-900 mb-4">
-                            Get in Touch
-                        </h3>
+                        <h3 className="font-semibold text-gray-900 mb-4">Get in Touch</h3>
                         <div className="space-y-3">
                             <div className="flex items-center space-x-3">
                                 <Mail className="h-4 w-4 text-gray-400 flex-shrink-0" />
@@ -187,12 +161,9 @@ const Footer = () => {
                 {/* Newsletter */}
                 <div className="border-t border-gray-200 pt-8 mb-8">
                     <div className="max-w-md mx-auto text-center">
-                        <h3 className="font-semibold text-gray-900 mb-2">
-                            Stay Updated
-                        </h3>
+                        <h3 className="font-semibold text-gray-900 mb-2">Stay Updated</h3>
                         <p className="text-gray-600 text-sm mb-4">
-                            Subscribe to our newsletter for the latest updates
-                            and exclusive offers.
+                            Subscribe to our newsletter for the latest updates and exclusive offers.
                         </p>
                         <form className="flex flex-col sm:flex-row gap-3">
                             <input

@@ -14,6 +14,7 @@ import {
     Check,
     Key,
     TriangleAlert,
+    ReceiptText,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -272,11 +273,19 @@ const ProfilePage = () => {
                         {/* Order History */}
                         <div className="bg-white rounded-lg shadow-sm border border-gray-200">
                             <div className="p-6 border-b border-gray-200">
-                                <h2 className="text-xl font-semibold text-gray-900 flex items-center">
-                                    <Package className="h-5 w-5 mr-2 text-gray-600" />
-                                    Order History
-                                </h2>
-                                <p className="text-gray-600 mt-1">View and track your recent orders</p>
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <h2 className="text-xl font-semibold text-gray-900 flex items-center">
+                                            <Package className="h-5 w-5 mr-2 text-gray-600" />
+                                            Order History
+                                        </h2>
+                                        <p className="text-gray-600 mt-1">View and track your recent orders</p>
+                                    </div>
+                                    <button className="flex items-center space-x-2 px-4 py-2 text-gray-600 hover:text-black hover:bg-gray-50 rounded-lg transition-colors">
+                                        <Eye className="h-4 w-4" />
+                                        <span className="text-sm font-medium">View All</span>
+                                    </button>
+                                </div>
                             </div>
                             <div className="divide-y divide-gray-200">
                                 {userData.orderHistory &&
@@ -316,7 +325,7 @@ const ProfilePage = () => {
                                                         onClick={() => toggleDetails(index)}
                                                         className="flex items-center space-x-1 text-gray-600 hover:text-black transition-colors"
                                                     >
-                                                        <Eye className="h-4 w-4" />
+                                                        <ReceiptText className="h-4 w-4" />
                                                         <span className="text-sm">Details</span>
                                                     </button>
                                                 </div>

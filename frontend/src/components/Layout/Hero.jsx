@@ -18,12 +18,12 @@ const Hero = () => {
                     Minimal Essentials
                 </h1>
                 <p className="text-lg sm:text-xl md:text-2xl text-white drop-shadow-md max-w-3xl mx-auto leading-relaxed">
-                    Discover our carefully curated collection of premium basics.
-                    Clean lines, quality materials, timeless design.
+                    Discover our carefully curated collection of premium basics. Clean lines, quality materials,
+                    timeless design.
                 </p>
                 <div className="pt-4">
                     <Link
-                        to="/collection/all"
+                        to="/collections/all"
                         className="inline-block bg-white text-black px-8 py-4 font-medium hover:bg-gray-100 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-transform"
                     >
                         Shop Collection
