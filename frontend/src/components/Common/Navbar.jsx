@@ -96,8 +96,11 @@ const Navbar = () => {
                                 </Link>
                             )}
                             {/* Cart */}
-                            <Link to="/cart" className="text-gray-700 hover:text-black transition-colors">
+                            <Link to="/cart" className="relative text-gray-700 hover:text-black transition-colors">
                                 <ShoppingBag className="h-5 w-5" />
+                                <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                                    3
+                                </span>
                             </Link>
                         </div>
                         {/* Mobile Navigation */}

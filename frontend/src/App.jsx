@@ -1,13 +1,16 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Toaster } from "sonner";
 import UserLayout from "./components/Layout/UserLayout";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ProfilePage from "./pages/ProfilePage";
 import CollectionPage from "./pages/CollectionPage";
+import ProductDetails from "./components/Products/ProductDetails";
 const App = () => {
     return (
         <BrowserRouter>
+            <Toaster position="top-right" />
             <Routes>
                 <Route path="/" element={<UserLayout />}>
                     <Route index element={<HomePage />} />
@@ -15,6 +18,7 @@ const App = () => {
                     <Route path="register" element={<RegisterPage />} />
                     <Route path="profile" element={<ProfilePage />} />
                     <Route path="collections/:collection" element={<CollectionPage />} />
+                    <Route path="product/:id" element={<ProductDetails />} />
                 </Route>
             </Routes>
         </BrowserRouter>
