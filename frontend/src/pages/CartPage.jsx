@@ -114,13 +114,13 @@ const CartPage = () => {
                                 </div>
                                 <Link
                                     to="/checkout"
-                                    className="w-full rounded-none bg-black px-6 py-3 font-medium text-white transition-colors duration-200 ease-in-out block text-center"
+                                    className="w-full rounded-none border-1 border-black bg-black px-6 py-3 font-medium text-white transition-colors duration-200 ease-in-out block text-center" //Button Primary
                                 >
                                     Proceed to Checkout
                                 </Link>
                                 <Link
                                     to="/collections/all"
-                                    className="w-full rounded-none border-1 border-black bg-white px-6 py-3 font-medium text-black transition-colors duration-200 ease-in-out block text-center mt-3"
+                                    className="w-full rounded-none border-1 border-black bg-white px-6 py-3 font-medium text-black transition-colors duration-200 ease-in-out block text-center mt-3" //Button Secondary
                                 >
                                     Continue Shopping
                                 </Link>
