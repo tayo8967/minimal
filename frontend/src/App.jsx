@@ -11,6 +11,7 @@ import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import OrderSuccessPage from "./pages/OrderSuccessPage";
 import OrderCancelPage from "./pages/OrderCancelPage";
+import OrderHistoryPage from "./pages/OrderHistoryPage";
 const App = () => {
     return (
         <BrowserRouter>
@@ -27,6 +28,7 @@ const App = () => {
                     <Route path="checkout" element={<CheckoutPage />} />
                     <Route path="order-success" element={<OrderSuccessPage />} />
                     <Route path="order-cancel" element={<OrderCancelPage />} />
+                    <Route path="order-history" element={<OrderHistoryPage />} />
                 </Route>
             </Routes>
         </BrowserRouter>
