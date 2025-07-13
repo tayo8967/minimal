@@ -1,4 +1,4 @@
-import { CircleCheckBig, Clock, Package, TrendingUp } from "lucide-react";
+import { CircleCheckBig, Clock, Package, Truck } from "lucide-react";
 
 const OrderSummary = () => {
     return (
@@ -39,7 +39,7 @@ const OrderSummary = () => {
                 <div className="bg-white rounded-lg border border-gray-200 p-4">
                     <div className="flex items-center space-x-3">
                         <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                            <TrendingUp className="h-5 w-5 text-blue-600" />
+                            <Truck className="h-5 w-5 text-blue-600" />
                         </div>
                         <div>
                             <p className="text-2xl font-bold text-gray-900">2</p>

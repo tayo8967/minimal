@@ -21,12 +21,12 @@ const cart = {
             image: "https://picsum.photos/150?random=2",
         },
     ],
-    subTotal: 89.97,
+    subtotal: 89.97,
 };
 
 const CartPage = () => {
     const tax = (2.4 * cart.products.reduce((sum, product) => sum + product.quantity, 0)).toFixed(2);
-    const totalPrice = (Number(cart.subTotal) + Number(tax)).toFixed(2);
+    const totalPrice = (Number(cart.subtotal) + Number(tax)).toFixed(2);
     return (
         <>
             {Object.keys(cart).length === 0 ? (
@@ -91,8 +91,8 @@ const CartPage = () => {
                                 <h2 className="text-xl font-semibold text-gray-900 mb-4">Order Summary</h2>
                                 <div className="space-y-3 mb-6">
                                     <div className="flex justify-between">
-                                        <span className="text-gray-600">Subtotal</span>
-                                        <span className="font-medium">${cart.subTotal}</span>
+                                        <span className="text-gray-600">subtotal</span>
+                                        <span className="font-medium">${cart.subtotal}</span>
                                     </div>
 
                                     <div className="flex justify-between">

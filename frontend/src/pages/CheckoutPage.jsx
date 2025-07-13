@@ -20,12 +20,12 @@ const cart = {
             image: "https://picsum.photos/150?random=2",
         },
     ],
-    subTotal: 89.97,
+    subtotal: 89.97,
 };
 
 const CheckoutPage = () => {
     const tax = (2.4 * cart.products.reduce((sum, product) => sum + product.quantity, 0)).toFixed(2);
-    const totalPrice = (Number(cart.subTotal) + Number(tax)).toFixed(2);
+    const totalPrice = (Number(cart.subtotal) + Number(tax)).toFixed(2);
     const navigate = useNavigate();
     const [checkoutId, setCheckoutId] = useState(null);
     const [contactInformation, setContactInformation] = useState({
@@ -37,9 +37,10 @@ const CheckoutPage = () => {
         lastName: "",
         address: "",
         city: "",
-        zipCode: "",
+        zipcode: "",
         state: "",
     });
+    // add saving of price information (subtotal, shippingFee, tax, totalPrice)
 
     useEffect(() => {
         //api to get user contact info
@@ -185,13 +186,13 @@ const CheckoutPage = () => {
                                 />
 
                                 <input
-                                    name="zipCode"
+                                    name="zipcode"
                                     type="text"
-                                    value={shippingAddress.zipCode}
+                                    value={shippingAddress.zipcode}
                                     onChange={(e) =>
                                         setShippingAddress({
                                             ...shippingAddress,
-                                            zipCode: e.target.value,
+                                            zipcode: e.target.value,
                                         })
                                     }
                                     placeholder="ZIP Code"
@@ -240,8 +241,8 @@ const CheckoutPage = () => {
 
                         <div className="space-y-3 border-t border-gray-200 pt-4">
                             <div className="flex justify-between">
-                                <span className="text-gray-600">Subtotal</span>
-                                <span className="font-medium">${cart.subTotal}</span>
+                                <span className="text-gray-600">subtotal</span>
+                                <span className="font-medium">${cart.subtotal}</span>
                             </div>
 
                             <div className="flex justify-between">
