@@ -19,8 +19,8 @@ const OrderFilterSidebar = () => {
         const params = Object.fromEntries([...searchParams]);
 
         setFilters({
-            status: params.status || "",
-            dateRange: params.dateRange || "",
+            status: params.status || "All Orders",
+            dateRange: params.dateRange || "All Time",
             search: params.search || "",
         });
     }, [searchParams]);
@@ -66,7 +66,7 @@ const OrderFilterSidebar = () => {
                     Filters
                 </h3>
 
-                {searchParams.size > 0 && (
+                {searchParams.has("status" || "orderRange" || "search") && (
                     <button
                         onClick={handleClearAll}
                         className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
