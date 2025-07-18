@@ -1,6 +1,7 @@
 import { Menu } from "lucide-react";
 import { useState } from "react";
 import AdminSidebar from "../Admin/AdminSidebar";
+import { Outlet } from "react-router-dom";
 
 const profile = {
     name: "John Doe",
@@ -37,6 +38,11 @@ const AdminLayout = () => {
                     }`}
                 >
                     <AdminSidebar profile={profile} />
+                </div>
+
+                {/* Main Content */}
+                <div className="flex-1 lg:ml-64">
+                    <Outlet />
                 </div>
             </div>
         </main>
