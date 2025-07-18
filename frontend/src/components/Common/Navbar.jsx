@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import SearchModal from "./SearchModal";
-import { User, ShoppingBag, LucideMenu, X, Search, CircleUser } from "lucide-react";
+import { User, ShoppingBag, LucideMenu, X, Search, CircleUser, Shield } from "lucide-react";
 import { useState } from "react";
 
 const Navbar = () => {
@@ -81,6 +81,15 @@ const Navbar = () => {
                                                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
                                             >
                                                 Order History
+                                            </Link>
+                                            <hr className="my-2 border-gray-200" />
+                                            <Link
+                                                to="/admin"
+                                                onClick={handleProfileToggle}
+                                                className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors flex items-center space-x-2"
+                                            >
+                                                <Shield className="h-4 w-4" />
+                                                <span>Admin Panel</span>
                                             </Link>
                                             <hr className="my-2 border-gray-200" />
                                             <button

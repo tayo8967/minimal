@@ -12,6 +12,8 @@ import CheckoutPage from "./pages/CheckoutPage";
 import OrderSuccessPage from "./pages/OrderSuccessPage";
 import OrderCancelPage from "./pages/OrderCancelPage";
 import OrderHistoryPage from "./pages/OrderHistoryPage";
+import AdminHomePage from "./pages/AdminHomePage";
+import AdminLayout from "./components/Layout/AdminLayout";
 const App = () => {
     return (
         <BrowserRouter>
@@ -29,6 +31,10 @@ const App = () => {
                     <Route path="order-success" element={<OrderSuccessPage />} />
                     <Route path="order-cancel" element={<OrderCancelPage />} />
                     <Route path="order-history" element={<OrderHistoryPage />} />
+                </Route>
+
+                <Route path="/admin" element={<AdminLayout />}>
+                    <Route index element={<AdminHomePage />} />
                 </Route>
             </Routes>
         </BrowserRouter>
