@@ -1,5 +1,5 @@
-import { Image, Save, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Image, Plus, Save, Upload, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const AdminProductForm = ({ type, onClose, productDetails }) => {
     const [productData, setProductData] = useState({
@@ -14,6 +14,7 @@ const AdminProductForm = ({ type, onClose, productDetails }) => {
         images: [],
     });
     const [selectedTab, setSelectedTab] = useState(0);
+    const fileInputRef = useRef(null);
 
     useEffect(() => {
         if (productDetails != null) {
@@ -29,9 +30,18 @@ const AdminProductForm = ({ type, onClose, productDetails }) => {
         }
     };
 
+    const handleFileUpload = () => {
+        fileInputRef.current.click();
+    };
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setProductData((prevData) => ({ ...prevData, [name]: value }));
+    };
+
+    const handleImageUpload = async (e) => {
+        const files = Array.from(e.target.files);
+        console.log(files);
     };
 
     const handleSubmit = (e) => {
@@ -83,7 +93,7 @@ const AdminProductForm = ({ type, onClose, productDetails }) => {
                         <div className="space-y-6">
                             {selectedTab == 0 ? (
                                 <>
-                                    {/* Product Details  */}
+                                    {/* Product Details Form */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
                                             <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -205,7 +215,53 @@ const AdminProductForm = ({ type, onClose, productDetails }) => {
                                     </div>
                                 </>
                             ) : (
-                                <div></div>
+                                <>
+                                    {/* Image Upload */}
+                                    <div>
+                                        <h3 className="text-lg font-medium text-gray-900 mb-4">Product Images</h3>
+                                        <p className="text-sm text-gray-600 mb-6">
+                                            Upload high-quality images of your product. The first image will be used as
+                                            the primary product image.
+                                        </p>
+                                    </div>
+                                    <div className="space-y-4">
+                                        <div className="border-2 border-dashed rounded-lg p-8 text-center transition-colors border-gray-300 hover:border-gray-400">
+                                            <input
+                                                type="file"
+                                                ref={fileInputRef}
+                                                onChange={handleImageUpload}
+                                                accept="image/jpeg,image/png,image/webp"
+                                                className="hidden"
+                                                multiple
+                                            />
+                                            <div className="space-y-4">
+                                                <div className="flex justify-center">
+                                                    <Upload className="h-12 w-12" />
+                                                </div>
+
+                                                <div className="text-center">
+                                                    <p className="text-lg font-medium text-gray-900">
+                                                        Drop images here or click to upload
+                                                    </p>
+                                                    <p className="text-sm text-gray-500 mt-1">
+                                                        Support for jpeg, png, webp up to 10MB each
+                                                    </p>
+                                                    <p className="text-xs text-gray-400 mt-1">
+                                                        Maximum 8 images • Images will be optimized automatically
+                                                    </p>
+                                                    <button
+                                                        type="button"
+                                                        onClick={handleFileUpload}
+                                                        className="mx-auto mt-6 flex items-center gap-2 px-6 py-3 bg-black text-white font-medium rounded-none transition-colors duration-200"
+                                                    >
+                                                        <Plus className="h-4 w-4 mr-2" />
+                                                        Select Images
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </>
                             )}
                         </div>
                     </div>
