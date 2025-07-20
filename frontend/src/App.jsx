@@ -14,6 +14,7 @@ import OrderCancelPage from "./pages/OrderCancelPage";
 import OrderHistoryPage from "./pages/OrderHistoryPage";
 import AdminHomePage from "./pages/AdminHomePage";
 import AdminLayout from "./components/Layout/AdminLayout";
+import AdminProductsPage from "./pages/AdminProductsPage";
 const App = () => {
     return (
         <BrowserRouter>
@@ -35,6 +36,7 @@ const App = () => {
 
                 <Route path="/admin" element={<AdminLayout />}>
                     <Route index element={<AdminHomePage />} />
+                    <Route path="products" element={<AdminProductsPage />} />
                 </Route>
             </Routes>
         </BrowserRouter>

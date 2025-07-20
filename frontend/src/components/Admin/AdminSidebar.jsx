@@ -34,6 +34,7 @@ const AdminSidebar = ({ profile }) => {
                     <li>
                         <NavLink
                             to="/admin"
+                            end
                             className={({ isActive }) =>
                                 isActive
                                     ? "w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-colors bg-black text-white"

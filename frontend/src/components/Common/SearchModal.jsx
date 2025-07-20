@@ -68,6 +68,7 @@ const SearchModal = ({ open, onClose }) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
+    // change this to display recent searches from redis instead of products
     const debouncedSearch = _.debounce(async (q) => {
         // look back and improve
         if (q.length < 3) {
@@ -117,14 +118,9 @@ const SearchModal = ({ open, onClose }) => {
                                     placeholder="Search products..."
                                     className="flex-1 outline-none text-lg"
                                     value={searchTerm}
-                                    onChange={(e) =>
-                                        setSearchTerm(e.target.value)
-                                    }
+                                    onChange={(e) => setSearchTerm(e.target.value)}
                                 />
-                                <button
-                                    onClick={onClose}
-                                    className="ml-3 text-gray-400 hover:text-gray-600"
-                                >
+                                <button onClick={onClose} className="ml-3 text-gray-400 hover:text-gray-600">
                                     <X className="h-5 w-5" />
                                 </button>
                             </div>
@@ -153,17 +149,14 @@ const SearchModal = ({ open, onClose }) => {
                                                             <h3 className="font-medium text-gray-900">
                                                                 {product.name}
                                                             </h3>
-                                                            <p className="text-sm text-gray-500">
-                                                                ${product.price}
-                                                            </p>
+                                                            <p className="text-sm text-gray-500">${product.price}</p>
                                                         </div>
                                                     </Link>
                                                 </div>
                                             ))
                                         ) : (
                                             <div className="p-8 text-center text-gray-500">
-                                                No products found for "
-                                                {searchTerm}"
+                                                No products found for "{searchTerm}"
                                             </div>
                                         )}
                                     </div>
