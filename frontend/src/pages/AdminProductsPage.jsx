@@ -2,6 +2,7 @@ import { Filter, Plus, Search } from "lucide-react";
 import { useState } from "react";
 import AdminProductGrid from "../components/Admin/AdminProductGrid";
 import AdminProductForm from "../components/Admin/AdminProductForm";
+import AdminDeleteProduct from "../components/Admin/AdminDeleteProduct";
 
 const products = [
     {
@@ -18,6 +19,8 @@ const products = [
             { url: "https://picsum.photos/500/500?random=2", altText: "Essential White Tee 2" },
             { url: "https://picsum.photos/500/500?random=3", altText: "Essential White Tee 3" },
         ],
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Black", "White", "Gray"],
     },
     {
         _id: 2,
@@ -32,6 +35,8 @@ const products = [
             { url: "https://picsum.photos/500/500?random=2", altText: "Classic Black Tee 1" },
             { url: "https://picsum.photos/500/500?random=3", altText: "Classic Black Tee 2" },
         ],
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Black", "White", "Gray"],
     },
     {
         _id: 3,
@@ -46,6 +51,8 @@ const products = [
             { url: "https://picsum.photos/500/500?random=3", altText: "Minimalist Hoodie 1" },
             { url: "https://picsum.photos/500/500?random=4", altText: "Minimalist Hoodie 2" },
         ],
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Black", "White", "Gray"],
     },
     {
         _id: 4,
@@ -59,6 +66,8 @@ const products = [
             { url: "https://picsum.photos/500/500?random=4", altText: "Oversized Tee 1" },
             { url: "https://picsum.photos/500/500?random=5", altText: "Oversized Tee 2" },
         ],
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Black", "White", "Gray"],
     },
     {
         _id: 5,
@@ -73,6 +82,8 @@ const products = [
             { url: "https://picsum.photos/500/500?random=6", altText: "Zip-Up Hoodie 2" },
             { url: "https://picsum.photos/500/500?random=7", altText: "Zip-Up Hoodie 2" },
         ],
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Black", "White", "Gray"],
     },
     {
         _id: 6,
@@ -86,6 +97,8 @@ const products = [
             { url: "https://picsum.photos/500/500?random=6", altText: "Long Sleeve Tee 1" },
             { url: "https://picsum.photos/500/500?random=7", altText: "Long Sleeve Tee 2" },
         ],
+        sizes: ["XS", "S", "M", "L", "XL"],
+        colors: ["Black", "White", "Gray"],
     },
 ];
 
@@ -94,6 +107,20 @@ const AdminProductsPage = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [allProducts] = useState(products);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false);
+    const [modalType, setModalType] = useState("");
+    const [productDetails, setProductDetails] = useState({
+        _id: 0,
+        name: "",
+        description: "",
+        price: 0,
+        category: "t-shirts",
+        sizes: [],
+        colors: [],
+        inStock: false,
+        isFeatured: false,
+        images: [],
+    });
 
     const filteredProducts = Array.from(
         new Map(
@@ -110,6 +137,32 @@ const AdminProductsPage = () => {
         ).values()
     );
 
+    const handleModal = (modalType, modalData) => {
+        if (modalData == null) {
+            modalData = {
+                _id: 0,
+                name: "",
+                description: "",
+                price: 0,
+                category: "t-shirts",
+                sizes: [],
+                colors: [],
+                inStock: true,
+                isFeatured: false,
+                images: [],
+            };
+        }
+
+        setModalType(modalType);
+        setProductDetails(modalData);
+        setIsModalOpen(true);
+    };
+
+    const handleDeleteModal = (productData) => {
+        setProductDetails(productData);
+        setIsModalDeleteOpen(true);
+    };
+
     return (
         <div className="p-6">
             <div className="space-y-6">
@@ -119,7 +172,7 @@ const AdminProductsPage = () => {
                         <p className="text-gray-600 mt-2">Manage your product catalog</p>
                     </div>
                     <button
-                        onClick={() => setIsModalOpen(true)}
+                        onClick={() => handleModal("Add New", null)}
                         className="rounded-none bg-black px-6 py-3 font-medium text-white transition-colors duration-200 flex items-center space-x-2"
                     >
                         <Plus className="h-4 w-4" />
@@ -162,7 +215,11 @@ const AdminProductsPage = () => {
 
                 {/* Product grid */}
                 {filteredProducts.length > 0 ? (
-                    <AdminProductGrid products={filteredProducts} />
+                    <AdminProductGrid
+                        products={filteredProducts}
+                        openModal={handleModal}
+                        openDeleteModal={handleDeleteModal}
+                    />
                 ) : (
                     <div className="p-4 space-y-4">
                         <div className="p-8 text-center text-gray-500">No products found</div>
@@ -170,7 +227,22 @@ const AdminProductsPage = () => {
                 )}
 
                 {/* Add New Product */}
-                {isModalOpen && <AdminProductForm type="Add New" onClose={() => setIsModalOpen(false)} />}
+                {isModalOpen && (
+                    <AdminProductForm
+                        type={modalType}
+                        isOpen={isModalOpen}
+                        onClose={() => setIsModalOpen(false)}
+                        productDetails={productDetails}
+                    />
+                )}
+
+                {isModalDeleteOpen && (
+                    <AdminDeleteProduct
+                        isOpen={isModalDeleteOpen}
+                        onClose={() => setIsModalDeleteOpen(false)}
+                        productId={productDetails._id}
+                    />
+                )}
             </div>
         </div>
     );

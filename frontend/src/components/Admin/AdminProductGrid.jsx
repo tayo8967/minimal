@@ -1,6 +1,6 @@
 import { Image, SquarePen, Trash2 } from "lucide-react";
 
-const AdminProductGrid = ({ products }) => {
+const AdminProductGrid = ({ products, openModal, openDeleteModal }) => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {products.map((product, index) => (
@@ -42,11 +42,17 @@ const AdminProductGrid = ({ products }) => {
                         <p className="text-lg font-bold text-gray-900 mb-4">${product.price}</p>
                         <div className="flex items-center justify-between">
                             <div className="flex space-x-2">
-                                <button className="p-2 text-gray-600 hover:text-black hover:bg-gray-100 rounded transition-colors">
+                                <button
+                                    onClick={() => openModal("Edit", product)}
+                                    className="p-2 text-gray-600 hover:text-black hover:bg-gray-100 rounded transition-colors"
+                                >
                                     <SquarePen className="h-4 w-4" />
                                 </button>
 
-                                <button className="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded transition-colors">
+                                <button
+                                    onClick={() => openDeleteModal(product)}
+                                    className="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded transition-colors"
+                                >
                                     <Trash2 className="h-4 w-4" />
                                 </button>
                             </div>

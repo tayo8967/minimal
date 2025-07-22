@@ -1,15 +1,18 @@
 import { Image, Plus, Save, Upload, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-const AdminProductForm = ({ type, onClose, productDetails }) => {
+const AdminProductForm = ({ type, isOpen, onClose, productDetails }) => {
+    if (!isOpen) return null;
+
     const [productData, setProductData] = useState({
+        _id: 0,
         name: "",
         description: "",
         price: 0,
         category: "t-shirts",
         sizes: [],
         colors: [],
-        inStock: false,
+        inStock: true,
         isFeatured: false,
         images: [],
     });
@@ -17,9 +20,7 @@ const AdminProductForm = ({ type, onClose, productDetails }) => {
     const fileInputRef = useRef(null);
 
     useEffect(() => {
-        if (productDetails != null) {
-            setProductData(productDetails);
-        }
+        setProductData(productDetails);
     }, []);
 
     const handleTabChange = () => {
@@ -35,8 +36,9 @@ const AdminProductForm = ({ type, onClose, productDetails }) => {
     };
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setProductData((prevData) => ({ ...prevData, [name]: value }));
+        const { name, type, checked, value } = e.target;
+
+        setProductData((prevData) => ({ ...prevData, [name]: type === "checkbox" ? checked : value }));
     };
 
     const handleImageUpload = async (e) => {
@@ -194,9 +196,10 @@ const AdminProductForm = ({ type, onClose, productDetails }) => {
                                         <label className="flex items-center">
                                             <input
                                                 type="checkbox"
-                                                name="stock"
+                                                name="inStock"
                                                 value={productData.inStock}
                                                 onChange={handleChange}
+                                                checked={productData.inStock}
                                                 className="mr-2"
                                             />
                                             <span className="text-sm text-gray-700">In Stock</span>
@@ -205,9 +208,10 @@ const AdminProductForm = ({ type, onClose, productDetails }) => {
                                         <label className="flex items-center">
                                             <input
                                                 type="checkbox"
-                                                name="featured"
+                                                name="isFeatured"
                                                 value={productData.isFeatured}
                                                 onChange={handleChange}
+                                                checked={productData.isFeatured}
                                                 className="mr-2"
                                             />
                                             <span className="text-sm text-gray-700">Featured Product</span>
@@ -286,7 +290,7 @@ const AdminProductForm = ({ type, onClose, productDetails }) => {
                                 className="w-full rounded-none border-1 border-black bg-black px-6 py-3 font-medium text-white transition-colors duration-200 ease-in-out text-center flex items-center space-x-2"
                             >
                                 <Save className="h-4 w-4" />
-                                <span>Add Product</span>
+                                <span>{type == "Add New" ? "Add" : "Update"} Product</span>
                             </button>
                         </div>
                     </div>
