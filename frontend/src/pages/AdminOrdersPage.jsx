@@ -360,7 +360,6 @@ const orders = [
 
 const AdminOrdersPage = () => {
     const [selectedStatus, setSelectedStatus] = useState("all");
-    const [updateOrderStatus, setUpdateOrderStatus] = useState();
     const [searchTerm, setSearchTerm] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [orderDetails, setOrderDetails] = useState({
